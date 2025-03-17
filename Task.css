@@ -1,0 +1,362 @@
+
+/* Centered Expanded Task Content Box */
+.expanded-task-content {
+  position: fixed; /* Stays in the center */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px; /* Fixed width */
+  max-width: 90%;
+  background: #cbe1f3 !important;
+  color: #333; 
+  padding: 15px; /* Slightly increased padding for better spacing */
+  border: 1px solid #9ec4e6; /* Slightly darker border */
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* More visible shadow */
+  z-index: 1000;
+  display: none;
+  overflow: hidden;
+}
+
+/* Remove extra white space from text */
+.expanded-task-content p {
+  margin: 0; /* Removes default margins */
+  padding: 5px 0; /* Minimal padding for spacing */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  text-align: justify;
+  line-height: 1.4; /* Adjust line height to reduce gaps */
+  color: #222; /* Slightly darker text for readability */
+}
+
+/* Responsive for Smaller Screens */
+@media (max-width: 768px) {
+  .expanded-task-content {
+    width: 90%;
+    max-width: 90%;
+  }
+}
+
+
+.close-btn {
+  position: absolute; 
+  top: 10px;
+  right: 10px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  justify-content: center;
+}
+
+
+/* General Styling */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #8d57c7, #4875c2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Floating Plus Button */
+#add-task-btn {
+  position: fixed;
+  top: 20px;
+  width: 60px;
+  height: 60px;
+  transition: 0.3s ease-in-out;
+}
+
+#add-task-btn:hover {
+  background: #0056b3;
+  transform: scale(1.1);
+}
+
+/* Task Form */
+#task-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+  width: 350px !important;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  text-align: center;
+}
+
+/* Heading */
+.task-form h1 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #333;
+  text-align: center;
+  width: 100%;
+}
+
+#close-btn {  
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Input Fields */
+.task-form input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 13px;
+  color: #333;
+  box-sizing: border-box;
+}
+
+/* Submit Button */
+#save-task-btn {
+  background: #007bff;
+  color: white;
+  padding: 8px;
+  width: 100%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#save-task-btn:hover {
+  background: #0056b3;
+}
+
+/* Task Container */
+.container {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  width: 100%;
+  overflow: hidden;
+  justify-content: space-between;
+  gap: 5px; /* Small space between columns */
+
+}
+
+/* Task Columns */
+.column {
+  width: 250px;
+  background: white;
+  min-height: 400px;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: 0.3s;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  max-height: 500px;
+  overflow-y: auto;
+  flex: 1;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f8f9fa;
+  flex: 0 0 auto; /* Prevents columns from stretching */
+  min-height: 300px;  
+}
+
+/* Task List */
+.task-list {
+  min-height: 100px;
+  max-height: none;
+  padding: 10px;
+  flex-grow: 1;
+  overflow-y: auto; 
+}
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+  .task-wrapper {
+      flex-wrap: wrap; /* Stack columns on smaller screens */
+      justify-content: center;
+  }
+  .column {
+      width: 100%; /* Full width on small screens */
+  }
+}
+
+
+/* Task Card */
+.task {
+  background: #e3f2fd;
+  padding: 12px;
+  margin:  1px;
+  border-radius: 10px;
+  cursor: grab;
+  border: 1px solid #90caf9;
+  position: relative;
+  padding-right: 40px;
+  overflow: hidden;
+  max-height: 100px;
+}
+
+/* Expanded Task State */
+.task.expanded {
+  pointer-events: none;
+}
+
+/* Action Buttons */
+.task .task-actions {
+  position: absolute;
+  top: 45px;
+  right: 0px;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Edit Button */
+.task .edit-btn {
+  position: absolute;
+  background-color: transparent;
+  cursor: pointer;
+  bottom: 10px;
+  right: 10px;
+  border: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .task-form {
+    width: 90%;
+  }
+
+  .task {
+    width: 90%;
+  }
+}
+
+/* Delete Button */
+.delete-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+}
+
+/* Auto-adjust textarea */
+#task-desc {
+  width: 100%;
+  min-height: 50px;
+  resize: none;
+  overflow-y: hidden;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 13px;
+  padding: 8px;
+  color: #333;
+  box-sizing: border-box;
+}
+
+#task-desc:focus {
+  outline: none;
+  border-color: #141414;
+}
+
+/* Task Title and Description */
+.task-title,
+.task-desc {
+  width: 100%;
+  margin: 5px;;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  max-width: 100%;
+}
+
+/* Dragging Effect */
+.dragging {
+  opacity: 0.5;
+}
+
+/* Error Messages */
+.text-danger {
+  margin-top: 5px;
+}
+
+/* Form Group */
+.form-group {
+  margin-bottom: 15px;
+}
+
+/* Optional: Adjust Form Control Height */
+input.form-control,
+textarea.form-control {
+  height: 40px;
+}
+
+/* Modal Background */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding-top: 60px;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.task-wrapper {
+  display: flex;
+  flex-wrap: nowrap; /* Ensures the columns stay in a row */
+  overflow-x: auto; /* Enables horizontal scrolling if needed */
+  gap: 0px;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 10px;
+  width: 100%;
+}
