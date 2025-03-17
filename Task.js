@@ -1,10 +1,10 @@
-let editingTask = null;  // Keeps track of the task being edited
-const addTaskBtn = document.getElementById("add-task-btn");  
+let editingTask = null; // Keeps track of the task being edited
+const addTaskBtn = document.getElementById("add-task-btn");
 
 document.addEventListener("DOMContentLoaded", () => {
-    loadTasks();  // Load tasks from local storage
-    initializeSortable();  // Enable drag-and-drop for tasks
-    initializeTextAreaAutoResize();  // Enable auto-resizing of text areas
+    loadTasks(); // Load tasks from local storage
+    initializeSortable(); // Enable drag-and-drop for tasks
+    initializeTextAreaAutoResize(); // Enable auto-resizing of text areas
 });
 
 // Initialize sortable functionality for task lists
@@ -50,15 +50,12 @@ function initializeTextAreaAutoResize() {
 // Show or hide the task form
 function toggleTaskForm(forceClose = false) {
     const form = document.getElementById("task-form");
-    const taskContainer = document.getElementById("task-container");
 
     if (forceClose || form.style.display === "flex") {
         form.style.display = "none";
-        taskContainer.classList.remove("shift-down");
         addTaskBtn.disabled = false;
     } else {
         form.style.display = "flex";
-        taskContainer.classList.add("shift-down");
         addTaskBtn.disabled = true;
     }
 }
@@ -136,7 +133,9 @@ function showTaskDetails(task) {
     expandedContent.innerHTML = `
         <h3>${task.querySelector(".task-title").textContent}</h3>
         <p>${task.querySelector(".task-desc").textContent}</p>
-        <button class="close-btn" onclick="closeTaskDetails()">  <i class="bi bi-x-lg"></i></button>
+        <button class="close-btn" onclick="closeTaskDetails()">  
+            <i class="bi bi-x-lg"></i>
+        </button>
     `;
 }
 
