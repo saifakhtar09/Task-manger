@@ -11,7 +11,9 @@ This Task Manager is a dynamic web application built using HTML, CSS, JavaScript
 With its clean design and interactive functionality, this Task Manager simplifies task tracking and enhances productivity! 🚀
 
 git remote add origin https://github.com/your-username/your-repo.git
-Incase of ovelaping Cloumn updadte the css :
+
+
+ while adding more task in column overlaping updadte the css :
 
 .task-columns {
   display: flex;
